@@ -12,6 +12,7 @@ class Principal {
         Scanner sc = new Scanner(System.in);
         boolean salir = false;
         boolean puntos = false;
+        boolean puntos1 = false;
         boolean rondas = false;
         System.out.println("---------------------------Menu---------------------");
         System.out.println("1.-Modo por rondas");
@@ -83,32 +84,34 @@ class Principal {
                         while (!puntos) {
                             System.out.println("Escriba la cantidad de numeros requeridos para ganar(Solo numeros):");
                             if (sc.hasNextInt()) {
-                                int punto= sc.nextInt();
+                                int punto = sc.nextInt();
                                 System.out.println("Eliga el numero maximo que puede tener los numeros aleatorios(Solo numeros):");
                                 int mAleatorio = sc.nextInt();
+                                while (!puntos1) {
+                                    Random hrs = new Random();
+                                    int V1 = hrs.nextInt(mAleatorio);
+                                    int V2 = hrs.nextInt(mAleatorio);
+                                    int V3 = hrs.nextInt(mAleatorio);
+                                    int V4 = hrs.nextInt(mAleatorio);
+                                    System.out.println("-----------------------------------");
+                                    Caballo1.Carrera(V1);
+                                    System.out.println("-----------------------------------");
+                                    Caballo2.Carrera(V2);
+                                    System.out.println("-----------------------------------");
+                                    Caballo3.Carrera(V3);
+                                    System.out.println("-----------------------------------");
+                                    Caballo4.Carrera(V4);
+                                    System.out.println("-----------------------------------");
 
-                                Random hrs = new Random();
-                                int V1 = hrs.nextInt(mAleatorio);
-                                int V2 = hrs.nextInt(mAleatorio);
-                                int V3 = hrs.nextInt(mAleatorio);
-                                int V4 = hrs.nextInt(mAleatorio);
-                                System.out.println("-----------------------------------");
-                                Caballo1.Carrera(V1);
-                                System.out.println("-----------------------------------");
-                                Caballo2.Carrera(V2);
-                                System.out.println("-----------------------------------");
-                                Caballo3.Carrera(V3);
-                                System.out.println("-----------------------------------");
-                                Caballo4.Carrera(V4);
-                                System.out.println("-----------------------------------");
+                                    try {
+                                        Thread.sleep(2000);
+                                    } catch (InterruptedException e) {
+                                        Thread.currentThread().interrupt();
+                                    }
 
-                                try {
-                                    Thread.sleep(2000);
-                                } catch (InterruptedException e) {
-                                    Thread.currentThread().interrupt();
-                                }
-                                if (Caballo1.getVelocidade() >= punto || Caballo2.getVelocidade() >= punto || Caballo3.getVelocidade() >= punto || Caballo4.getVelocidade() >= punto) {
-                                    puntos = true;
+                                    if (Caballo1.getVelocidade() >= punto || Caballo2.getVelocidade() >= punto || Caballo3.getVelocidade() >= punto || Caballo4.getVelocidade() >= punto) {
+                                        puntos1 = true;
+                                    }
                                 }
 
                                 if (Caballo1.getVelocidade() > Caballo2.getVelocidade() && Caballo1.getVelocidade() > Caballo3.getVelocidade() && Caballo1.getVelocidade() > Caballo4.getVelocidade()) {
@@ -123,13 +126,27 @@ class Principal {
                                 if (Caballo4.getVelocidade() > Caballo1.getVelocidade() && Caballo4.getVelocidade() > Caballo2.getVelocidade() && Caballo4.getVelocidade() > Caballo3.getVelocidade()) {
                                     System.out.println("Gano el caballo 4");
                                 }
-                            } else {
-                                System.out.println("Simbolos no aceptados");
-                                sc.next();
+
+                                System.out.println("Quieres volver a repetir?");
+                                System.out.println("Si o No");
+
+                                char repetir = sc.nextLine().charAt(0);
+                                if (repetir == 'S' || repetir == 's') {
+                                    System.out.println("La partida se reinicio");
+                                }
+                                if (repetir == 'N' || repetir == 'n') {
+                                    System.out.println("La partida se termino");
+                                    puntos = true;
+                                }
+                            }else {
+                                    System.out.println("Simbolos no aceptados");
+                                    sc.next();
+
+                                }
                             }
-                        }
-                        break;
-                            case 3:
+                            break;
+
+                             case 3:
                                 System.out.println("Salir");
                                 salir = true;
                                 break;
