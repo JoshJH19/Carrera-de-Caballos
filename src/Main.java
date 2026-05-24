@@ -14,6 +14,7 @@ class Principal {
         boolean puntos = false;
         boolean puntos1 = false;
         boolean rondas = false;
+
         System.out.println("---------------------------Menu---------------------");
         System.out.println("1.-Modo por rondas");
         System.out.println("2.-Modo por puntos");
@@ -39,7 +40,9 @@ class Principal {
                                 int mAleatorio = sc.nextInt();
 
                                 for (int i = 0; i < ronda; i++) {
+
                                     Random hrs = new Random();
+
                                     int V1 = hrs.nextInt(mAleatorio);
                                     int V2 = hrs.nextInt(mAleatorio);
                                     int V3 = hrs.nextInt(mAleatorio);
@@ -81,12 +84,15 @@ class Principal {
                         break;
                     case 2:
                         System.out.println("Modo por puntos");
+
                         while (!puntos) {
+
                             System.out.println("Escriba la cantidad de numeros requeridos para ganar(Solo numeros):");
                             if (sc.hasNextInt()) {
                                 int punto = sc.nextInt();
                                 System.out.println("Eliga el numero maximo que puede tener los numeros aleatorios(Solo numeros):");
                                 int mAleatorio = sc.nextInt();
+
                                 while (!puntos1) {
                                     Random hrs = new Random();
                                     int V1 = hrs.nextInt(mAleatorio);
@@ -127,23 +133,24 @@ class Principal {
                                     System.out.println("Gano el caballo 4");
                                 }
 
-                                System.out.println("Quieres volver a repetir?");
-                                System.out.println("Si o No");
-
-                                char repetir = sc.nextLine().charAt(0);
-                                if (repetir == 'S' || repetir == 's') {
-                                    System.out.println("La partida se reinicio");
-                                }
-                                if (repetir == 'N' || repetir == 'n') {
-                                    System.out.println("La partida se termino");
-                                    puntos = true;
-                                }
-                            }else {
-                                    System.out.println("Simbolos no aceptados");
+                                System.out.println("\nQuieres repetir el modo? (S/N)");
+                                if (sc.hasNextLine()) {
+                                    String repetir = sc.nextLine();
+                                    if (repetir.equals("S")) {
+                                        System.out.println("Repitiendo el modo");
+                                    } else if (repetir.equals("N")) {
+                                        puntos = true;
+                                        System.out.println("Gracias por jugar");
+                                    }
+                                } else {
+                                    System.out.println("Simbolo invalido");
                                     sc.next();
-
                                 }
+                            } else {
+                                System.out.println("Simbolos no aceptados");
+                                sc.next();
                             }
+                        }
                             break;
 
                              case 3:
