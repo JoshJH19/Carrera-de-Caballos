@@ -100,19 +100,19 @@ class Principal {
                                 }
                                 //Aqui se compara que caballo es mayor que los demas para dar el resultado del ganador de la carrera
                                 if (Caballo1.getVelocidade() > Caballo2.getVelocidade() && Caballo1.getVelocidade() > Caballo3.getVelocidade() && Caballo1.getVelocidade() > Caballo4.getVelocidade()) {
-                                    System.out.println("Gano el caballo 1");
+                                    System.out.println("Gano el caballo :"+ Caballo1.getColor());
                                 }
                                 if (Caballo2.getVelocidade() > Caballo3.getVelocidade() && Caballo2.getVelocidade() > Caballo4.getVelocidade() && Caballo2.getVelocidade() > Caballo1.getVelocidade()) {
-                                    System.out.println("Gano el caballo 2");
+                                    System.out.println("Gano el caballo :"+Caballo2.getColor());
                                 }
                                 if (Caballo3.getVelocidade() > Caballo4.getVelocidade() && Caballo3.getVelocidade() > Caballo1.getVelocidade() && Caballo3.getVelocidade() > Caballo2.getVelocidade()) {
-                                    System.out.println("Gano el caballo 3");
+                                    System.out.println("Gano el caballo :" + Caballo3.getColor());
                                 }
                                 if (Caballo4.getVelocidade() > Caballo1.getVelocidade() && Caballo4.getVelocidade() > Caballo2.getVelocidade() && Caballo4.getVelocidade() > Caballo3.getVelocidade()) {
-                                    System.out.println("Gano el caballo 4");
+                                    System.out.println("Gano el caballo :" +  Caballo4.getColor());
                                 }
                                 //Se hace la pregunta si quieres comenzar la carrera otra vez
-                                System.out.println("Quieres repetir la carrera? (S/N)");
+                                System.out.println("Quieres repetir la carrera? ((S)repetir / (cualquier tecla)continuar )");
                                 char respuesta = sc.next().charAt(0);
                                 if (respuesta == 'S' || respuesta == 's') {
                                     //Ente ayuda a reiniciar a los cabbalos y vuelvan a competir nuevamente desde cero
@@ -122,7 +122,7 @@ class Principal {
                                     Caballo4.reiniciar();
                                 } else  {
                                     System.out.println("Saliendo de la carrera");
-                                    System.out.println("Apretar una tecla para continuar");
+                                    System.out.println("Apretar una nuevamente una tecla para continuar");
                                     rondas = true;
                                     //Tiene un bug o falla que tienes que volver a poner otra vez una tecla para salir al menu
                                 }
@@ -203,19 +203,19 @@ class Principal {
                                 }
 
                                 if (Caballo1.getVelocidade() > Caballo2.getVelocidade() && Caballo1.getVelocidade() > Caballo3.getVelocidade() && Caballo1.getVelocidade() > Caballo4.getVelocidade()) {
-                                    System.out.println("Gano el caballo 1");
+                                    System.out.println("Gano el caballo :"+ Caballo1.getColor());
                                 }
                                 if (Caballo2.getVelocidade() > Caballo3.getVelocidade() && Caballo2.getVelocidade() > Caballo4.getVelocidade() && Caballo2.getVelocidade() > Caballo1.getVelocidade()) {
-                                    System.out.println("Gano el caballo 2");
+                                    System.out.println("Gano el caballo :"+Caballo2.getColor());
                                 }
                                 if (Caballo3.getVelocidade() > Caballo4.getVelocidade() && Caballo3.getVelocidade() > Caballo1.getVelocidade() && Caballo3.getVelocidade() > Caballo2.getVelocidade()) {
-                                    System.out.println("Gano el caballo 3");
+                                    System.out.println("Gano el caballo :" + Caballo3.getColor());
                                 }
                                 if (Caballo4.getVelocidade() > Caballo1.getVelocidade() && Caballo4.getVelocidade() > Caballo2.getVelocidade() && Caballo4.getVelocidade() > Caballo3.getVelocidade()) {
-                                    System.out.println("Gano el caballo 4");
+                                    System.out.println("Gano el caballo :" +  Caballo4.getColor());
                                 }
 
-                                System.out.println("Quieres repetir la carrera? (S/N)");
+                                System.out.println("Quieres repetir la carrera? ((S)repetir / (cualquier tecla)continuar )");
                                 char respuesta = sc.next().charAt(0);
                                 if (respuesta == 'S' || respuesta == 's') {
                                     Caballo1.reiniciar();
@@ -224,7 +224,7 @@ class Principal {
                                     Caballo4.reiniciar();
                                 } else {
                                     System.out.println("Saliendo de la carrera");
-                                    System.out.println("Apretar una tecla para continuar");
+                                    System.out.println("Apretar una nuevamente una tecla para continuar");
                                     puntos = true;
                                 }
                             } else {
